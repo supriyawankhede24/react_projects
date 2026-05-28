@@ -6,7 +6,7 @@ console.log(heading); //object with props and attr
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(tag); //Render method converting the heading object into a h1 tag
-
+// Render methd replaces the root id tag content with this render
 // -----
 
 /* 
