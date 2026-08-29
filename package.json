@@ -1,0 +1,25 @@
+{
+  "name": "reactcourse",
+  "version": "1.0.0",
+  "description": "Beginning of React learning",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/supriyawankhede24/react_projects.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/supriyawankhede24/react_projects/issues"
+  },
+  "homepage": "https://github.com/supriyawankhede24/react_projects#readme",
+  "dependencies": {
+    "parcel": "^2.16.4",
+    "react": "^19.2.6",
+    "react-router-dom": "^6.28.0"
+  }
+}

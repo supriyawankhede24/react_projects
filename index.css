@@ -1,2 +1,294 @@
-#heading{
-color: blue;}
+/* .header {
+display: flex;
+justify-content: space-between;
+border: 1px solid black;
+}
+
+.logo {
+  width: 200px
+}
+
+.navItem > ul {
+font-size: 24px;
+display: flex;
+padding: 0px 20px;
+list-style-type: none;
+}
+
+.navItem > ul > li {
+  padding: 10px;
+margin: 10px;
+
+}
+.resContainer{
+display: flex;
+flex-wrap: wrap;
+overflow-wrap: break-word; 
+  box-sizing: border-box;
+}
+.search{
+padding: 10px;
+} */
+
+/* 
+.res-card {
+width: 200px;
+height: 300px;
+padding: 5px;
+border: 1px solid black;
+}
+
+.res-logo {
+width : 100%;
+margin: 5px;
+} */
+/* Header Container */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08); /* Gives a floating nav bar look */
+  position: sticky;
+  top: 0;
+  z-index: 100; /* Keeps header above other content when scrolling */
+}
+
+/* Logo Styling */
+.logo {
+  width: 120px; /* Adjust based on your preference */
+  height: auto;
+  object-fit: contain;
+}
+
+/* Navigation List Container */
+.list {
+  display: flex;
+  list-style-type: none; /* Removes the default bullet points */
+  margin: 0;
+  padding: 0;
+  gap: 25px; /* Evenly spaces the nav items */
+}
+
+/* Individual Navigation Items */
+.listIten {  /* Note: Using your class name "listIten" */
+  font-family: Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #3d4152;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.listIten:hover {
+  color: #fc8019; /* A nice Swiggy-style orange hover effect */
+}
+
+/* Main Body Wrapper */
+.body {
+  padding: 30px 40px;
+  max-width: 1200px; /* Prevents layout from stretching too wide on massive screens */
+  margin: 0 auto; /* Centers the body content horizontally */
+}
+
+/* Search Bar Container */
+.search {
+  display: flex;
+  justify-content: center; /* Centers the input field */
+  margin-bottom: 40px;
+}
+
+/* Search Input Field */
+.search input {
+  width: 400px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: 1px solid #d4d5d9;
+  border-radius: 8px; /* Rounded corners */
+  outline: none;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.search input:focus {
+  border-color: #fc8019;
+  box-shadow: 0 0 5px rgba(252, 128, 25, 0.3); /* Glowing orange effect on click */
+}
+
+/* Restaurant Card Container */
+.resContainer {
+  display: flex;
+  flex-wrap: wrap; /* Allows cards to wrap to the next line if they run out of space */
+  gap: 25px; /* Adds consistent spacing between all cards */
+  justify-content: flex-start; /* Aligns cards to the left */
+}
+
+/* Main card container */
+.res-card {
+  width: 250px; /* Adjust width as needed */
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  
+  /* Ensures content stays inside */
+  overflow: hidden; 
+  word-wrap: break-word; 
+}
+
+/* Optional hover effect */
+.res-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Image container and image styling */
+.res-logo {
+  width: 100%;
+}
+
+.res-logo img {
+  width: 100%;
+  height: 160px; /* Fixed height so all cards align perfectly */
+  object-fit: cover; /* Prevents the image from squishing or stretching */
+  border-radius: 8px;
+}
+
+/* Typography styling */
+.res-card h3 {
+  font-family: Arial, sans-serif; /* Replace with your app's font */
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #282c3f; /* Dark grey/black */
+  margin: 12px 0 4px 0;
+  
+  /* Truncate long restaurant names with an ellipsis (...) */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.res-card h5 {
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #686b78; /* Muted grey for secondary info */
+  margin: 4px 0;
+}
+
+/* Container matches your .resContainer exactly */
+.shimmer-container {
+  padding: 30px 40px;
+  max-width: 1200px; /* Prevents layout from stretching too wide on massive screens */
+  margin: 0 auto; 
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: flex-start;
+}
+
+/* Shimmer card matches your .res-card exactly */
+.shimmer-card {
+  width: 250px;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Base style for all shimmer elements inside the card */
+.stroke {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+/* Specific heights and widths to mimic the real content */
+.shimmer-img {
+  height: 160px;
+  width: 100%;
+  border-radius: 8px; /* Matches your res-logo img border radius */
+  margin-bottom: 15px;
+}
+
+.shimmer-title {
+  height: 22px;
+  width: 70%;
+  margin-bottom: 12px;
+}
+
+.shimmer-rating {
+  height: 14px;
+  width: 50%;
+  margin-bottom: 8px;
+}
+
+.shimmer-cuisines {
+  height: 14px;
+  width: 90%;
+  margin-bottom: 8px;
+}
+
+.shimmer-area {
+  height: 14px;
+  width: 40%;
+}
+
+/* The sweeping animation magic */
+.animate {
+  animation: shimmer 1.5s infinite linear;
+  background: linear-gradient(to right, #f6f7f8 4%, #edeef1 25%, #f6f7f8 36%);
+  background-size: 1000px 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Keeps the search bar and filter button aligned nicely */
+.filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px; /* Space between search bar and button */
+  margin-bottom: 40px;
+}
+
+/* Update your previous .search margin so it doesn't add double spacing */
+.search {
+  margin-bottom: 0; 
+}
+/* Filter Button Styling */
+.filter {
+  padding: 10px 24px;
+  font-family: Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #3d4152;
+  background-color: #ffffff;
+  border: 1px solid #d4d5d9;
+  border-radius: 25px; /* Gives it a nice pill shape */
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02); /* Very soft base shadow */
+  
+  /* Smooth transitions for hovering and clicking */
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover effect */
+.filter:hover {
+  border-color: #fc8019; /* Matches the Swiggy orange theme */
+  color: #fc8019;
+  background-color: rgba(252, 128, 25, 0.05); /* Very light orange tint on hover */
+  box-shadow: 0 4px 8px rgba(252, 128, 25, 0.15); /* Slight orange glow shadow */
+}
+
+/* Click/Active effect */
+.filter:active {
+  transform: scale(0.95); /* Satisfying little "press in" effect when clicked */
+}
