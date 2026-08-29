@@ -176,3 +176,119 @@ margin: 5px;
   color: #686b78; /* Muted grey for secondary info */
   margin: 4px 0;
 }
+
+/* Container matches your .resContainer exactly */
+.shimmer-container {
+  padding: 30px 40px;
+  max-width: 1200px; /* Prevents layout from stretching too wide on massive screens */
+  margin: 0 auto; 
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: flex-start;
+}
+
+/* Shimmer card matches your .res-card exactly */
+.shimmer-card {
+  width: 250px;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Base style for all shimmer elements inside the card */
+.stroke {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+/* Specific heights and widths to mimic the real content */
+.shimmer-img {
+  height: 160px;
+  width: 100%;
+  border-radius: 8px; /* Matches your res-logo img border radius */
+  margin-bottom: 15px;
+}
+
+.shimmer-title {
+  height: 22px;
+  width: 70%;
+  margin-bottom: 12px;
+}
+
+.shimmer-rating {
+  height: 14px;
+  width: 50%;
+  margin-bottom: 8px;
+}
+
+.shimmer-cuisines {
+  height: 14px;
+  width: 90%;
+  margin-bottom: 8px;
+}
+
+.shimmer-area {
+  height: 14px;
+  width: 40%;
+}
+
+/* The sweeping animation magic */
+.animate {
+  animation: shimmer 1.5s infinite linear;
+  background: linear-gradient(to right, #f6f7f8 4%, #edeef1 25%, #f6f7f8 36%);
+  background-size: 1000px 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Keeps the search bar and filter button aligned nicely */
+.filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px; /* Space between search bar and button */
+  margin-bottom: 40px;
+}
+
+/* Update your previous .search margin so it doesn't add double spacing */
+.search {
+  margin-bottom: 0; 
+}
+/* Filter Button Styling */
+.filter {
+  padding: 10px 24px;
+  font-family: Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #3d4152;
+  background-color: #ffffff;
+  border: 1px solid #d4d5d9;
+  border-radius: 25px; /* Gives it a nice pill shape */
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02); /* Very soft base shadow */
+  
+  /* Smooth transitions for hovering and clicking */
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover effect */
+.filter:hover {
+  border-color: #fc8019; /* Matches the Swiggy orange theme */
+  color: #fc8019;
+  background-color: rgba(252, 128, 25, 0.05); /* Very light orange tint on hover */
+  box-shadow: 0 4px 8px rgba(252, 128, 25, 0.15); /* Slight orange glow shadow */
+}
+
+/* Click/Active effect */
+.filter:active {
+  transform: scale(0.95); /* Satisfying little "press in" effect when clicked */
+}
