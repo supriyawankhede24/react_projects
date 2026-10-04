@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/supriyawankhede24/react_projects#readme",
   "dependencies": {
+    "axios": "^1.20.0",
     "parcel": "^2.16.4",
     "react": "^19.2.6",
     "react-router-dom": "^6.28.0"
