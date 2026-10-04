@@ -1,5 +1,7 @@
 import NavItem from './NavItem'; 
 import { LOGO_URL } from "../utils/constants";
+import useOnlineStatus from '../utils/useOnlineStatus';
+
 
 const Header = () => {
   return (

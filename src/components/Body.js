@@ -2,6 +2,9 @@ import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { RES_LIST_URL } from "../utils/constants";
 import { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfRes, setlistOfRes] = useState([]);
@@ -11,23 +14,42 @@ const Body = () => {
     fetchData();
   }, []);
 
-  const fetchData = async () => {
-    // URL that throws a CORS error
-    // const apiUrl = RES_LIST_URL;
+  const onlineStatus = useOnlineStatus();
 
-    // Prefix the URL with corsproxy.io
-    // const data = await fetch("https://corsproxy.io/?url=" + encodeURIComponent(apiUrl));
-    const data = await fetch(RES_LIST_URL);
-    // HTTP request succeeds ✅
-    const jsonData = await data.json();
-    // Optional chaining
-    const result = jsonData.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-    setlistOfRes(result);
+  const demoData = {
+    info: {
+      id: "270186",
+      name: "Corridor Seven Coffee Roasters",
+      cloudinaryImageId: "bwj2cxzscbfymyiscc04",
+      areaName: "Sitabuldi",
+      costForTwo: "₹400 for two",
+      cuisines: ["Beverages", "Burgers", "Desserts", "Snacks"],
+      avgRating: 4.6,
+      sla: {
+        deliveryTime: 20,
+      },
+    },
   };
+  const fetchData = async () => {
+    setlistOfRes([demoData]);
+
+    // axios
+    //   .get(RES_LIST_URL)
+    //   .then((response) => {
+    //     // Optional chaining
+    //     const result = response.data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    //     setlistOfRes([...result, demoData]);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+  };
+
   // // Conditional rendering
   if (!listOfRes || listOfRes.length === 0) {
     return <Shimmer />;
   }
+  if (onlineStatus === false) return <h1>Looks like you are offline, please check your internet conection</h1>;
   return (
     <div className="body">
       {/* <div className="filter"> */}
@@ -56,7 +78,9 @@ const Body = () => {
       {/* </div> */}
       <div className="resContainer">
         {listOfRes.map((res) => (
-          <RestaurantCard key={res.info.id} resData={res} />
+          <Link to={"/restaurants/" + res.info.id} key={res.info.id}>
+            <RestaurantCard resData={res} />
+          </Link>
         ))}
       </div>
     </div>
