@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
+import { useContext } from "react";
 
 const NavItem = () => {
+  const data = useContext(UserContext);
   const onlineStatus = useOnlineStatus();
+
   return (
     <div className="navItem">
       <ul className="list">
@@ -20,6 +24,8 @@ const NavItem = () => {
         <li className="listIten">
           <Link to="/grocery">Grocery</Link>
         </li>
+        <li className="listIten font-bold">{data.loggedInUser}</li>
+
       </ul>
     </div>
   );

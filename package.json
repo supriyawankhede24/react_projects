@@ -18,9 +18,14 @@
   },
   "homepage": "https://github.com/supriyawankhede24/react_projects#readme",
   "dependencies": {
+    "@reduxjs/toolkit": "^2.13.0",
     "axios": "^1.20.0",
     "parcel": "^2.16.4",
     "react": "^19.2.6",
+    "react-redux": "^9.3.1",
     "react-router-dom": "^6.28.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
   }
 }

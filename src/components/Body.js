@@ -1,21 +1,22 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withLabelComponent } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { RES_LIST_URL } from "../utils/constants";
-import { useState, useEffect } from "react";
+// import mockResData from "../utils/mockRestaurantData";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listOfRes, setlistOfRes] = useState([]);
   let [searchRes, setSearchRes] = useState("");
-
+  const {loggedInUser, setUserName} = useContext(UserContext);
   useEffect(() => {
     fetchData();
   }, []);
-
   const onlineStatus = useOnlineStatus();
-
+  const RestaurantCardLabel = withLabelComponent(RestaurantCard);
   const demoData = {
     info: {
       id: "270186",
@@ -28,6 +29,7 @@ const Body = () => {
       sla: {
         deliveryTime: 20,
       },
+      promoted: true,
     },
   };
   const fetchData = async () => {
@@ -74,12 +76,21 @@ const Body = () => {
         >
           Top Rated Restaurants
         </button>
+
+        <input
+          className="border-b-gray-900"
+          type="text"
+          value={loggedInUser}
+          onChange={(e) => {
+            setUserName(e.target.value)
+          }}
+        />
       </div>
       {/* </div> */}
       <div className="resContainer">
         {listOfRes.map((res) => (
           <Link to={"/restaurants/" + res.info.id} key={res.info.id}>
-            <RestaurantCard resData={res} />
+            {res.info.promoted ? <RestaurantCardLabel resData={res} /> : <RestaurantCard resData={res} />}
           </Link>
         ))}
       </div>

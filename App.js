@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./index.css";
@@ -10,18 +10,33 @@ import Contact from "./src/components/Contact";
 import RestaurantMenu from "./src/components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Shimmer from "./src/components/Shimmer";
+import UserContext from "./src/utils/UserContext";
+import { useState } from "react";
+
 // import Grocery from "./src/components/Grocery";
 
 const AppLayout = () => {
   console.log("apploaded");
+
+  const [userName, setUserName] = useState();
+
+  useEffect(() => {
+    const response = {
+      name: "Akshay",
+    };
+    setUserName(response.name);
+  }, []);
+
   return (
     <div className="app">
-      <Header />
-      <Outlet />
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <Header />
+        <Outlet />
+      </UserContext.Provider>
     </div>
   );
 };
-const Grocery = lazy(()=> import("./src/components/Grocery"))
+const Grocery = lazy(() => import("./src/components/Grocery"));
 
 // const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -44,10 +59,17 @@ const router = createBrowserRouter([
       { path: "/", element: <Body /> },
       { path: "/about", element: <About /> },
       { path: "/contact", element: <Contact /> },
-      { path: "/grocery", element: <Suspense fallback={<Shimmer/>}><Grocery /></Suspense>},
+      {
+        path: "/grocery",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Grocery />
+          </Suspense>
+        ),
+      },
       { path: "/restaurants/:resId", element: <RestaurantMenu /> },
     ],
-  }
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

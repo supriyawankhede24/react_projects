@@ -1,34 +1,6 @@
-/* .header {
-display: flex;
-justify-content: space-between;
-border: 1px solid black;
-}
-
-.logo {
-  width: 200px
-}
-
-.navItem > ul {
-font-size: 24px;
-display: flex;
-padding: 0px 20px;
-list-style-type: none;
-}
-
-.navItem > ul > li {
-  padding: 10px;
-margin: 10px;
-
-}
-.resContainer{
-display: flex;
-flex-wrap: wrap;
-overflow-wrap: break-word; 
-  box-sizing: border-box;
-}
-.search{
-padding: 10px;
-} */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* 
 .res-card {

@@ -1,7 +1,6 @@
-import NavItem from './NavItem'; 
+import NavItem from "./NavItem";
 import { LOGO_URL } from "../utils/constants";
-import useOnlineStatus from '../utils/useOnlineStatus';
-
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   return (
@@ -10,7 +9,7 @@ const Header = () => {
         <img className="logo" src={LOGO_URL} alt="logo" />
       </div>
       <div className="navbar">
-        <NavItem></NavItem>
+          <NavItem></NavItem>
       </div>
     </div>
   );

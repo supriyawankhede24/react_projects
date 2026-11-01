@@ -6,7 +6,7 @@ const [count, setCount] = useState(0)
 
   return (
     <div className="userClass">
-      <button type="" onClick={()=>{setCount(count+1)}} >Increment</button>
+      <button className="border-b-2 bg-slate-500" type="" onClick={()=>{setCount(count+1)}} >Increment</button>
       <h2>Count: {count}</h2>
       <h1>Name from function: {userData.name}</h1>
       <h3>{userData.role}</h3>
